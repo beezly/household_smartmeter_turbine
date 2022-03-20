@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 while read line
 do
   generation=$(echo "$line" | cut -f2 -d=)
