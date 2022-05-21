@@ -1,5 +1,6 @@
 FROM alpine:latest
 ENV SMARTMETER_DEVICE /dev/ttyUSB0
+ENV MQTT_HOST eclipse-mosquitto
 RUN apk update && apk add bash perl perl-device-serialport mosquitto-clients
 RUN mkdir /app
 ADD https://github.com/ohitz/smartmeter-readout/raw/master/smartmeter-readout /app
