@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "$(date -Iseconds): starting up reader"
 let generation=0
 while read line
 do
