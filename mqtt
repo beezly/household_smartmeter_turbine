@@ -2,8 +2,8 @@
 let generation=0
 while read line
 do
-  new_generation=$(echo "$line" | cut -f2 -d=)
-  if ($new_generation -gt $generation); then
+  new_generation=$(echo "$line" | cut -f2 -d= | cut -f1 -d\. )
+  if [ $new_generation -gt $generation ]; then
     generation=$new_generation 
     mosquitto_pub -h "${MQTT_HOST}" -t meters/turbine/total_generation -m $generation -r
     echo "$(date -Iseconds): meters/turbine/total_generation: $generation"
